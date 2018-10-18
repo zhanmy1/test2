@@ -34,6 +34,7 @@ while True:
 	#将一个字典添加到列表中
 		card_infors.append(new_infor)
 		#print(card_infors)  #for test
+		print("添加成功！")
 
 	elif num==2:
 		remove_name = input("请输入你要删除名片的名字：")
@@ -49,21 +50,32 @@ while True:
 			print("查无此人！")
 	elif num==3:
 		change_name = input("请输入你要修改名片的名字：")
-		change_name_1 = input("请输入修改后的名字：")
-		change_QQ = input("请输入修改后的QQ")
-		change_sex = input("请输入修改后的性别")
-		change_addr = input("请输入修改后的住址")
+		change_word = int(input("请输入你要修改的内容:1.名字 2.QQ 3.性别 4.住址:     "))
+
+		#change_name_1 = input("请输入修改后的名字：")
+		#change_QQ = input("请输入修改后的QQ")
+		#change_sex = input("请输入修改后的性别")
+		#change_addr = input("请输入修改后的住址")
 		change_flag = 0#默认表示没找到
 		for temp in card_infors:
 			if change_name==temp['name']:
-				temp['name'] = change_name_1
-				temp['QQ'] = change_QQ
-				temp['sex'] = change_sex
-				temp['addr'] = change_addr
-				print("修改成功！")
+				if change_word==1:
+					change_name_1 = input("请输入修改后的名字：")
+					temp['name'] = change_name_1
+				if change_word==2:
+					change_QQ = input("请输入修改后的QQ")
+					temp['QQ'] = change_QQ
+				if change_word==3:
+					change_sex = input("请输入修改后的性别")
+					temp['sex'] = change_sex
+				if change_word==4:
+					change_addr = input("请输入修改后的住址")
+					temp['addr'] = change_addr
+				
+			print("修改成功！")
 				#print(card_infors)  #for test
-				change_flag = 1
-				break
+			change_flag = 1
+			break
 		if change_flag==0:
 			print("查无此人！")
 				
